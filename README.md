@@ -1,3 +1,25 @@
+## Requirements
+• Use Angular 2+ with TypeScript. You can use any package manager and/ or boilerplate you’d like.
+
+• No need for a back-end or persistent storage. If something needs to be stored it can be stored in memory (objects).
+
+• Bonus points for a nice UI and UX.
+
+
+Description:
+
+• Create an app that has two lists side by side. Both lists should work exactly the same and a user should be able to interact with either list.
+
+• Each list can have any number of items. Each item should be an image thumbnail.
+
+• When the app starts, one or both of the lists should have a few items pre-loaded.
+
+• The app needs to allow moving items between lists. How this is implemented, and how many items can be moved with one action, is left up to the developer.
+
+• Every time an item is moved between lists, a counter (for each item) is incremented. When the app starts all counters should be set to zero. When an items’s counter reaches 5, that item is frozen in that list - meaning that we can no longer move it between lists.
+
+• This counter should be displayed for each item. How and where this counter is displayed is up to the developer.
+
 # ListProject
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.2.
@@ -25,3 +47,5 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+
