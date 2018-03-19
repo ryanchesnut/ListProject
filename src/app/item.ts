@@ -3,4 +3,6 @@ export interface IItem {
     itemDescription: string;
     count: number;
     imgUrl: string;
+    disabled: boolean;
+    listMember: number;
 }

@@ -7,5 +7,5 @@ import { ListComponent } from './list/list.component';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  title = 'Lists';
+  title = 'VACATION DESTINATIONS';
 }
