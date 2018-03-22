@@ -65,52 +65,43 @@ export class ListComponent {
 
   ];
 
+  lists: any[] = [this.list1, this.list2];
 
-  constructor() {
-
+  public printList() {
+    for (let i = 0; i < this.lists.length; i++) {
+          console.log(this.lists[i]);
+    }
   }
+
+  constructor() {}
 
   public updateCount(item: IItem): void {
-
-    for ( let i = 0; i < this.list1.length; i++ ) {
-      if (this.list1[i].count > 3 ) {
-        this.list1[i].disabled = true;
-      }
-        if (item.uuid.match(this.list1[i].uuid)) {
-          this.list1[i].count++;
-          break;
+    for (let j = 0; j < this.lists.length; j++) {
+      for ( let i = 0; i < this.lists[j].length; i++ ) {
+        if (this.lists[j][i].count > 3 ) {
+          this.lists[j][i].disabled = true;
         }
-    }
-      for (let j = 0; j < this.list2.length; j++) {
-        if (this.list2[j].count > 3 ) {
-          this.list2[j].disabled = true;
-        }
-
-        if (item.uuid.match(this.list2[j].uuid)) {
-          this.list2[j].count++;
-          break;
+          if (item.uuid.match(this.lists[j][i].uuid)) {
+            this.lists[j][i].count++;
+            break;
           }
-        }
+      }
+    }
   }
 
-  public removeItem(item: any, list: any[], index: number,  listNumber: number): void {
+  public removeItem(item: any, list: any[]): void {
         list.splice(list.indexOf(item), 1);
-        this.updateListMember();
   }
 
   public updateListMember() {
-    for (let j = 0; j < this.list2.length; j++) {
-        console.log(this.list2[j]);
-        if (this.list2[j].listMember !== 2) {
-          this.updateCount(this.list2[j]);
+    for (let k = 0; k < this.lists.length; k++) {
+      for (let j = 0; j < this.lists[k].length; j++) {
+          if (this.lists[k][j].listMember !== (k + 1)) {
+            this.updateCount(this.lists[k][j]);
+          }
+          this.lists[k][j].listMember = (k + 1);
         }
-        this.list2[j].listMember = 2;
       }
-    for (let i = 0; i < this.list1.length; i++) {
-      if (this.list1[i].listMember !== 1) {
-          this.updateCount(this.list1[i]);
-      }
-      this.list1[i].listMember = 1;
     }
-  }
+
 }

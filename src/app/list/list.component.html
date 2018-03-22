@@ -11,24 +11,27 @@
 
   </div>
   <div class="row">
-    <div class="col-md-6" [dndList] [dndPlaceholder]="placeholder" [dndModel]="list1">
-      <div *ngFor="let item of list1; let i = index;" class="col-md-12" [dndType]="'item'" (dndMoved)="removeItem(item, list1, i, 1)" 
-        [dndDraggable] [dndObject]="item"[dndDragDisabled]="item.disabled" (dndDragEnd)="updateListMember()">
-        <div class="img-style"><img class="img-responsive" [src]="item.imgUrl" style="height:60px; width: 60px;" [title]="item.itemsDescription"></div>
+    <div *ngFor="let list of lists; let i = index;" class="col-md-6" 
+          [dndList] 
+          [dndPlaceholder]="placeholder" 
+          [dndModel]="list">
+      <div *ngFor="let item of list; let j = index;" 
+            class="col-md-12" 
+            [dndType]="'item'" 
+            (dndMoved)="removeItem(item, list)" 
+            (dndMoved)="updateListMember()"
+            [dndDraggable] 
+            [dndObject]="item"
+            [dndDragDisabled]="item.disabled">
+        <div class="img-style"><img class="img-responsive" 
+            [src]="item.imgUrl" 
+            style="height:60px; width: 60px;" 
+            [title]="item.itemsDescription">
+         </div>
           <div [ngStyle]="item.disabled && {'color': 'rgb(222, 226, 232)'}">
             Destination: {{item.itemDescription}}<br>
             Moves: {{item.count}}
           </div>
-      </div>
-    </div>
-    <div class="col-md-6" [dndList] [dndModel]="list2" [dndPlaceholder]="placeholder">
-      <div *ngFor="let item of list2; let j = index;" class="col-md-12" [dndType]="'item'" (dndMoved)="removeItem(item, list2, j, 2)" 
-        [dndDraggable] [dndObject]="item" [dndDragDisabled]="item.disabled" (dndDragEnd) ="updateListMember()" >
-            <div class="img-style"><img class="img-responsive" [src]="item.imgUrl" style="height:60px; width: 60px;" [title]="item.itemsDescription"></div>
-            <div [ngStyle]="item.disabled && {'color': 'rgb(222, 226, 232)'}">
-            Destination: {{item.itemDescription}}<br>
-            Moves: {{item.count}} 
-            </div>
       </div>
     </div>
   </div>
